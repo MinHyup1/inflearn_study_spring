@@ -29,7 +29,7 @@ public class OrderRepositoryV2 {
 			trace.end(status);
 		} catch (Exception e) {
 			trace.exception(status, e);
-			throw e; // 예외를 꼭 다시 던져주어야 한다.
+			throw e;
 		}
 
 	//저장 로직
