@@ -8,6 +8,7 @@ import hello.proxy.app.v2.OrderControllerV2;
 import hello.proxy.app.v2.OrderRepositoryV2;
 import hello.proxy.app.v2.OrderServiceV2;
 
+
 @Configuration
 public class AppV2Config {
 
