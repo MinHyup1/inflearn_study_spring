@@ -1,5 +1,5 @@
 package hello.hellospring;
-
+//hello.hellospring 하위 에서만 컴포넌트 등록 가능
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
