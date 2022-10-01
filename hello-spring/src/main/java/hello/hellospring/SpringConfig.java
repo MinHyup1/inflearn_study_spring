@@ -17,29 +17,39 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private EntityManager em;
+    private final MemberRepository memberRepository;
 
-    @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
+    @Autowired //생성자가 한개일 경우 @Autowired 생략가능
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
+
+    //    Basic JPA
+//    private EntityManager em;
+//
+//    @Autowired
+//    public SpringConfig(EntityManager em) {
+//        this.em = em;
+//    }
 
     @Bean
     public MemberService memberService() {
-        return  new MemberService(memberRepository());
+        return  new MemberService(memberRepository);
     }
-
 //        개방-폐쇄 원칙(OCP, Open-Closed Principle)
 //        - 확장에는 열려있고, 수정, 변경에는 닫혀있다.
 //        객체지향 설계의 장점 : 다형성을 활용할 수 있다(인터페이스를 바꿔끼우기 가능) DI덕분에 굉장히 편하게 다형성 활용 가능
 //        스프링의 DI(Dependencies Injection)을 사용하면 기존코드를 전혀 손대지 않고, 설정만으로 구현 클래스를 변경 할 수 있다.
-    @Bean
-    public MemberRepository memberRepository() {
+
+
+//    @Bean
+//    public MemberRepository memberRepository() {
 //        return new MemberRepository();
 //        return new JdbcMemberRepository(dataSource);
 //        return new JdbcTemplateMemberRepository(dataSource);
-        return new JpaMemberRepository(em);
-    }
+//        return new JpaMemberRepository(em);
+//    }
+
 
 
 }
